@@ -47,7 +47,7 @@ class MainActivity : BaseActivity(), Contract.View {
     fun setupInjection(){
        presenter = (applicationContext as ConvertMoneyApp)
            .getComponent(this, this)
-           .getMainPresenter();
+           .getMainPresenter()
 
     }
 

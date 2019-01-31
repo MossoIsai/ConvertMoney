@@ -8,7 +8,8 @@ import retrofit2.Retrofit
 
 class MainRepository: Contract.Repository {
 
-   private   var retrofitClient:Retrofit
+
+    private   var retrofitClient:Retrofit
 
     constructor(retrofitClient: Retrofit){
         this.retrofitClient = retrofitClient
@@ -16,6 +17,10 @@ class MainRepository: Contract.Repository {
 
     override fun attempGetCurrency():Observable<Currency> {
       return retrofitClient.create(EndPointMain::class.java).getCurrencys()
+    }
+
+    override fun attempCompareCurrencys(unionCurrency: String): Observable<Currency> {
+        return  retrofitClient.create(EndPointMain::class.java).compare(unionCurrency)
     }
 
 }

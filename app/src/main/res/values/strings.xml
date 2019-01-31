@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ConvertMoney</string>
+    <string name="title_main_screen">Convertidor de monedas</string>
+    <string name="title">Convertidor de monedas</string>
+    <string name="label_calculate">Calcular</string>
+    <string name="label_hint_mount">Cantidad</string>
+    <string name="label_hint_mount_result">$00.00</string>
+    <string name="label_origin">origen:</string>
+    <string name="label_destination">destino:</string>
+    <string name="label_quantity">cantidad:</string>
 </resources>

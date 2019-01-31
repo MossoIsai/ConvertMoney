@@ -6,6 +6,8 @@ import io.reactivex.Observable
 
 class MainInteractor : Contract.Interactor{
 
+
+
     private  var repository: Contract.Repository
 
     constructor(repository: Contract.Repository){
@@ -15,6 +17,12 @@ class MainInteractor : Contract.Interactor{
     override fun attempGetCurrency(): Observable<Currency> {
         return  repository.attempGetCurrency()
     }
+
+
+    override fun attempCompareCurrencys(unionCurrency: String): Observable<Currency> {
+       return  repository.attempCompareCurrencys(unionCurrency)
+    }
+
 
 
 }

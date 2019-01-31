@@ -76,6 +76,7 @@
             android:id="@+id/textView3"/>
 
     <EditText
+            android:id="@+id/edtAmount"
             android:hint="@string/label_hint_mount"
             android:inputType="numberDecimal"
             android:layout_width="0dp"

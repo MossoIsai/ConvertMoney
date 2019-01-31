@@ -11,7 +11,7 @@ interface EndPointMain{
     fun getCurrencys():Observable<Currency>
 
     @GET("latest")
-    fun compare(@Query("symbols") symbol:String):Observable<Currency>
+    fun compare(@Query("base") base:String):Observable<Currency>
 
 }
 

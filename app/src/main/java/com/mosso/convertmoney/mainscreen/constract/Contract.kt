@@ -17,20 +17,20 @@ interface Contract {
     interface Presenter{
 
         fun attempGetCurrency()
-        fun attempCompareCurrencys(firstCurrency: String, secondCurrency: String)
+        fun attempCompareCurrencys(baseCurrency: String, monto:String)
         fun onDestroy()
     }
     interface Interactor{
 
         fun attempGetCurrency(): Observable<Currency>
-        fun attempCompareCurrencys(unionCurrency: String) : Observable<Currency>
+        fun attempCompareCurrencys(baseCurrency: String) : Observable<Currency>
 
     }
 
     interface Repository{
 
         fun attempGetCurrency(): Observable<Currency>
-        fun attempCompareCurrencys(unionCurrency: String) : Observable<Currency>
+        fun attempCompareCurrencys(baseCurrency: String) : Observable<Currency>
 
     }
 

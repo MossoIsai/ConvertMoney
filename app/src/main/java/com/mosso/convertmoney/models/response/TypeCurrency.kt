@@ -35,7 +35,8 @@ data class TypeCurrency(
     @SerializedName("THB") val thb: String?,
     @SerializedName("BRL") val brl: String?,
     @SerializedName("PLN") val pln: String?,
-    @SerializedName("ILS") val ils: String?
+    @SerializedName("ILS") val ils: String?,
+    @SerializedName("EUR") val eur: String?
 
 
 )

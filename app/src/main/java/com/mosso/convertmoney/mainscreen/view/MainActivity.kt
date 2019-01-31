@@ -24,7 +24,7 @@ class MainActivity : BaseActivity(), Contract.View {
     private lateinit var currencyOrigin:String
     private lateinit var currencyDestination:String
 
-    private val arrayCurrency =  arrayOf(    "NZD",
+    private val arrayCurrency =  arrayOf(    "NZD","EUR",
         "CAD", "MXN", "AUD","CNY", "PHP", "GBP", "CZK", "USD", "SEK", "NOK", "TRY", "IDR", "ZAR", "MYR", "HKD", "HUF", "ISK", "HRK", "JPY", "BGN", "SGD", "RUB", "RON", "CHF", "DKK", "INR", "KRW", "THB", "BRL", "PLN", "ILS")
 
 
@@ -40,7 +40,7 @@ class MainActivity : BaseActivity(), Contract.View {
         presenter.attempGetCurrency()
         initView()
         btnCalculate.setOnClickListener {
-            presenter.attempCompareCurrencys(currencyOrigin,currencyDestination)
+            presenter.attempCompareCurrencys(currencyOrigin,edtAmount.text.toString())
         }
     }
 
@@ -54,6 +54,7 @@ class MainActivity : BaseActivity(), Contract.View {
     }
 
     override fun setResult(resultCompare: String) {
+        Log.d("TAG","setResult-> result: $resultCompare")
         tvtResult.text = resultCompare
     }
 
@@ -86,7 +87,7 @@ class MainActivity : BaseActivity(), Contract.View {
             }
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                currencyOrigin = arrayCurrency[position]
+                currencyDestination = arrayCurrency[position]
 
             }
         }

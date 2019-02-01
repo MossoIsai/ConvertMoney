@@ -6,23 +6,24 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.mosso.convertmoney.ConvertMoneyApp
 import com.mosso.convertmoney.R
 import com.mosso.convertmoney.base.BaseActivity
 import com.mosso.convertmoney.mainscreen.constract.Contract
 import com.mosso.convertmoney.models.response.TypeCurrency
 import com.mosso.convertmoney.utils.LoadingDialog
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
+
 
 class MainActivity : BaseActivity(), Contract.View {
 
-
-
-    private lateinit var presenter:Contract.Presenter
     private lateinit var loading:LoadingDialog
     private val TAG: String  = MainActivity::class.java.simpleName
     private lateinit var currencyOrigin:String
     private lateinit var currencyDestination:String
+    val presenter : Contract.Presenter by inject { parametersOf(this) }
+
 
     private val arrayCurrency =  arrayOf(    "NZD","EUR",
         "CAD", "MXN", "AUD","CNY", "PHP", "GBP", "CZK", "USD", "SEK", "NOK", "TRY", "IDR", "ZAR", "MYR", "HKD", "HUF", "ISK", "HRK", "JPY", "BGN", "SGD", "RUB", "RON", "CHF", "DKK", "INR", "KRW", "THB", "BRL", "PLN", "ILS")
@@ -36,11 +37,10 @@ class MainActivity : BaseActivity(), Contract.View {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
         makeLoading()
-        setupInjection()
         presenter.attempGetCurrency()
         initView()
         btnCalculate.setOnClickListener {
-            presenter.attempCompareCurrencys(currencyOrigin,edtAmount.text.toString())
+          presenter.attempCompareCurrencys(currencyOrigin,edtAmount.text.toString())
         }
     }
 
@@ -63,9 +63,9 @@ class MainActivity : BaseActivity(), Contract.View {
     }
 
     fun setupInjection(){
-       presenter = (applicationContext as ConvertMoneyApp)
+       /*presenter = (applicationContext as ConvertMoneyApp)
            .getComponent(this, this)
-           .getMainPresenter()
+           .getMainPresenter()*/
     }
 
     fun  initView(){
@@ -101,7 +101,7 @@ class MainActivity : BaseActivity(), Contract.View {
 
     override fun onDestroy() {
         super.onDestroy()
-        presenter.onDestroy()
+        //presenter.onDestroy()
     }
 
 
